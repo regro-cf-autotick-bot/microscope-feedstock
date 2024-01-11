@@ -1,5 +1,5 @@
 {% set name = "microscope" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/microscope-{{ version }}.tar.gz
-  sha256: b21cfc85496eca7cdb0667deb1e782ec94481a11ba17e8416ae13a7083cfd7b6
+  sha256: 5a4f263176e743c2133e0306a62dc288701d13d0b8fb54527c129a9b518193ed
 
 build:
   entry_points:
