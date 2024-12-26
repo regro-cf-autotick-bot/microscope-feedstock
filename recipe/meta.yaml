@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/microscope-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/microscope-{{ version }}.tar.gz
   sha256: b21cfc85496eca7cdb0667deb1e782ec94481a11ba17e8416ae13a7083cfd7b6
 
 build:
@@ -16,12 +16,12 @@ build:
     - microscope-gui = microscope.gui:_setuptools_entry_point
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - sphinx
   run:
     - hidapi
@@ -30,7 +30,7 @@ requirements:
     - pyro4
     - pyserial
     - pyside2
-    - python >=3.6
+    - python >={{ python_min }}
     - qtpy
 
 test:
@@ -46,6 +46,7 @@ test:
     - DISPLAY=localhost:1.0 xvfb-run -a microscope-gui --help  # [linux]
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://www.python-microscope.org
